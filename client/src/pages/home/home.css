@@ -1,0 +1,12 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+}
+.homeDiv{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+

@@ -1,0 +1,116 @@
+.settings{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.settingsWrapper{
+    flex: 9;
+}
+.proPic{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+#profileInput{
+    display: none;
+}
+.userIcon{
+    
+    transition: all 0.3s ease;
+    
+    border-radius: 50%;
+    border: 1px solid rgb(124, 124, 124);
+    color: rgb(124, 124, 124);
+    height: 20px;
+    width: 20px;
+    transform: scale(1.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+
+}
+.userIcon:hover{
+    border: 1px solid rgb(68, 68, 68);
+    color: rgb(68, 68, 68);
+}
+.profileSettings{
+    
+   width: 80px;
+   margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.title1{
+    padding: 15px 0;
+    
+}
+.title1,.title2{
+    margin: 30px 20px;
+}
+.settingsForm{
+    margin:20px;
+    padding:20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 60vh;
+  
+}
+
+#userName,#email,#password{
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    outline: none;
+    margin: 20px 0;
+    font-size: 20px;
+    padding: 5px;
+}
+.updateSubmit{
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(66, 164, 255);
+    background-color: rgb(66, 164, 255);
+    color: white;
+    width: 130px;
+    transition: all 0.3s ease;
+}
+#userName:focus,#email:focus,#password:focus{
+ outline: 1px solid lightgray;
+}
+.warning{
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    color: red;
+}
+.warning i{
+    padding-right: 10px;
+    color: red;
+    transition: all 0.3s ease;
+}
+.deleteAccount{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    transition: all 0.3s ease;
+}
+.updateSubmit:hover{
+    background-color:rgb(0, 86, 167) ;
+    border: 1px solid rgb(0, 86, 167);
+}
+.deleteAccount:hover{
+    background-color:rgb(158, 0, 0) ;
+    border: 1px solid rgb(158, 0, 0);
+}
+
+
+/* media queries*/
+
