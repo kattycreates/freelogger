@@ -14,7 +14,7 @@ const Header = () => {
     <div className='header' id='header'>
         <form className='search' onSubmit={handleSubmit}>
            {/* <img src="assets/food1.jpg" alt=""  className="header-img" />*/}
-           <input type="text" className='searchBox' value={search} onChange={(e)=>setSearch(e.target.value)} />
+           <input type="text" className='searchBox' value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="search by category" />
            <i className="searchIcon fa fa-search fa-lg"></i>
 
           
