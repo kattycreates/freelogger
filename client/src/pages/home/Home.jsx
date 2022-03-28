@@ -31,7 +31,7 @@ const Home = () => {
     <div className='home'>
         <Header />
         <div className='homeDiv'>
-          <Posts posts={posts}/>
+          {posts?<Posts posts={posts}/>:<h3>Oops! Nothing to show</h3>}
           <Sidebar />
         </div>
         <Jump />
