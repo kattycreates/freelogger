@@ -43,3 +43,18 @@
     background-color: rgb(0, 0, 0);
     color: white;
 }
+
+/*media queries */
+
+
+@media screen and (max-width:750px) {
+    .header{
+        height: 500px;
+         }
+ }
+ 
+ @media screen and (max-width:575px) {
+     .header{
+    height: 300px;
+     }
+ }

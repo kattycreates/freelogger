@@ -280,9 +280,10 @@
         top: 0;
         box-shadow: 0px 1px 25px 0.2px rgb(136, 136, 136);
         z-index: 999;
-        color: black;
+       
       
-        background-color: white;
+        background-color: rgba(0,0,0,1);
+        color: white;
        
         /*box-shadow: 0px 1px 10px 0.2px rgb(80, 80, 80);*/
         transition: all 0.3s ease;
@@ -319,7 +320,7 @@
     .line{
         width: 30px;
       transform: scaleY(0.4);
-        background-color: black;
+        background-color: white;
        
        
         transition: all 0.3s ease-in-out;
@@ -366,20 +367,20 @@
 
 }
 .v-nav-bar.v-nav-bar-visible{
-    height: 650px;
+    height: 100vh;
     display: block;
     
 }
 .v-nav-bar .VList{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     list-style-type: none;
     height: 100%;
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin-top: 10px;
 }
 .VListItem{
     opacity: 0;
