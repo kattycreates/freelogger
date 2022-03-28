@@ -8,7 +8,7 @@ const NavBar = () => {
 const {user,dispatch}=useContext(Context);
 //console.log("user",user)
 const [toggle,setToggle]=useState(false);
-const imagePath='http://localhost:5000/imageProfile/';
+const imagePath='/imageProfile/';
 
 const toggleClass=(e)=>{
   e.preventDefault();

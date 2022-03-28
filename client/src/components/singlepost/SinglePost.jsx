@@ -13,13 +13,13 @@ const [updateMode,setUpdateMode]=useState(false);
 const {user}=useContext(Context);
 const location=useLocation();
 const path=location.pathname.split('/')[2];
-const imagePath='http://localhost:5000/images/';
+const imagePath='/images/';
 //console.log(location);
 //console.log(user);
 useEffect(()=>{
     try{
         const getPost=async()=>{
-            const res=await axios.get('http://localhost:5000/api/posts/'+path);
+            const res=await axios.get('/api/posts/'+path);
             setPost(res.data);
             setTitle(res.data.title)
             setDesc(res.data.desc);
@@ -35,7 +35,7 @@ useEffect(()=>{
 
 const handleUpdate=async()=>{
     try{
-        await axios.put('http://localhost:5000/api/posts/'+path,{
+        await axios.put('/api/posts/'+path,{
             username:user.username,title,desc
         });
         setUpdateMode(false);
@@ -50,7 +50,7 @@ const handleUpdate=async()=>{
 const handleDelete=async()=>{
     if(window.confirm("Delete post permanently?")){
         try{
-            await axios.delete('http://localhost:5000/api/posts/'+path,post);
+            await axios.delete('/api/posts/'+path,post);
             window.location.replace('/')
         }
         catch(err){

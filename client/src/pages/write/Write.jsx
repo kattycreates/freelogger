@@ -14,7 +14,7 @@ const Write = () => {
 
     useEffect(()=>{
         const getCategories=async()=>{
-            const res=await axios.get('http://localhost:5000/api/categories');
+            const res=await axios.get('/api/categories');
             const cats=res.data.map(cat=>cat.name);
             setCategories(cats);
         };
@@ -37,7 +37,7 @@ const Write = () => {
 
        const postCategories=async(cat)=>{
         try{
-            const res=await axios.post('http://localhost:5000/api/categories',{name:cat});
+            const res=await axios.post('/api/categories',{name:cat});
             console.log(res);
         }
         catch(err){
@@ -81,12 +81,12 @@ const Write = () => {
             data.append('file',file);
             newPost.postImage=filename;
             try{
-                await axios.post('http://localhost:5000/api/upload',data);
+                await axios.post('/api/upload',data);
 
             }catch(err){}
         }
         try{
-            const res=await axios.post('http://localhost:5000/api/posts',newPost);
+            const res=await axios.post('/api/posts',newPost);
             console.log(res);
             
             window.location.replace('/post/'+res.data._id);

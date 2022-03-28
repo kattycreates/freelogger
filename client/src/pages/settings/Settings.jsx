@@ -19,7 +19,7 @@ const Settings = () => {
 
   
   
-  const profilePath='http://localhost:5000/imageProfile/';
+  const profilePath='/imageProfile/';
 
   const handleUpdate=async(e)=>{
     e.preventDefault();
@@ -49,12 +49,12 @@ const Settings = () => {
         data.append('file',file);
         newPost.profileImg=filename;
         try{
-            await axios.post('http://localhost:5000/api/uploadProfilePic',data);
+            await axios.post('/api/uploadProfilePic',data);
 
         }catch(err){}
     } 
     try{
-        const res=await axios.put('http://localhost:5000/api/users/'+user._id,newPost);
+        const res=await axios.put('/api/users/'+user._id,newPost);
         setSuccess(true);
         console.log("updated user",res);
         dispatch({type:"Update_Success",payload:res.data});
@@ -73,7 +73,7 @@ const Settings = () => {
       try{
        
     
-         axios.delete('http://localhost:5000/api/users/'+user._id,{data:{_id:user._id}}).then((res)=>{
+         axios.delete('/api/users/'+user._id,{data:{_id:user._id}}).then((res)=>{
           if(res){
             setDeleted(true);
 

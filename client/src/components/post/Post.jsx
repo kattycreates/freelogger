@@ -3,7 +3,7 @@ import './post.css'
 import { Link } from 'react-router-dom'
 
 const Post = ({post}) => {
-  const imagePath='http://localhost:5000/images/';
+  const imagePath='/images/';
   return (
     <div className='post'>{post.postImage&&<img className='postImg' src={imagePath+post.postImage} alt="" />}
 

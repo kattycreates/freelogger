@@ -14,7 +14,7 @@ const handleSubmit=async(e)=>{
     e.preventDefault();
     setError(true);
     try{
-        const res=await axios.post('http://localhost:5000/api/auth/register',{
+        const res=await axios.post('/api/auth/register',{
             username,email,password,profileImg:""
         });
         console.log(res);

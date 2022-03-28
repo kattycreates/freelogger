@@ -14,7 +14,7 @@ const handleSubmit=async(e)=>{
   e.preventDefault();
   dispatch({type:"Login_Start"});
     try{
-        const res=await axios.post('http://localhost:5000/api/auth/login',{
+        const res=await axios.post('/api/auth/login',{
             email:emailRef.current.value,
             password:passwordRef.current.value
         });
