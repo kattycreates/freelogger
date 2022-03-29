@@ -1,0 +1,100 @@
+
+#contact{
+    width: 100%;
+    color: black;
+    background-color: rgba(0,0,0,0.3);
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#contact .title{
+    padding-top: 30px;
+}
+#contact label{
+    
+    padding: 10px;
+}
+#contact input{
+    background-color: transparent;
+    padding: 2vh;
+    border-bottom:1px solid black !important;
+    outline: none !important;
+    height: 20px;
+}
+#contact form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: auto;
+    align-items: stretch;
+    justify-content: center;
+    font-size: 18px;
+}
+.form #email{
+    margin: 0;
+}
+.form #name{
+    border: none;
+}
+sup{
+    color: red;
+}
+#contact form textarea{
+height: 15vh;
+padding: 10px;
+outline: none;
+border: 1px solid black;
+background-color: transparent;
+}
+.form textarea::placeholder{
+    color: black;
+}
+#contact form #button{
+    
+    width: 100px;
+    align-self: center;
+
+    
+    border: none;
+    color: black;
+    font-weight: bolder;
+    transition: transform 0.5s;
+    padding: 10px;
+    margin: 20px 0;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+  
+    
+   
+
+
+
+}
+#contact form #button:hover{
+    
+    border: solid 1px var(--secondary-color);
+    opacity: 1;
+
+}
+
+
+@media screen and (max-width:750px) {
+    #contact form{
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+        height: auto;
+        align-items: stretch;
+        justify-content: center;
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width:575px) {
+}

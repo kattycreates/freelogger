@@ -9,6 +9,7 @@ import Write from './pages/write/Write';
 import Settings from './pages/settings/Settings';
 import Login from './pages/Login/Login'
 import Register from './pages/register/Register';
+import Contact from './pages/contact/Contact';
 import Footer from './components/footer/Footer';
 import { Context } from './contexts/Context';
 function App() {
@@ -27,6 +28,7 @@ const {user}=useContext(Context);
           <Route exact path='/login' element={user?<Home />:<Login/>} />
           <Route exact path='/write' element={user?<Write/>:<Login/>} />
           <Route exact path='/settings' element={user?<Settings />:<Login/>} />
+          <Route exact path='/contact' element={<Contact />} />
           
         </Routes>
         <Footer />

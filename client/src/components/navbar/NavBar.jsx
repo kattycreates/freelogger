@@ -18,7 +18,7 @@ const logout=async(e)=>{
  e.preventDefault();
  await dispatch({type:"Logout"});
  window.location.replace('/login');
-}
+};
   return (
     <>
     <div className='navbar'>
@@ -35,8 +35,7 @@ const logout=async(e)=>{
         <div className="nav">
           <ul>
             <li><Link className='link' to='/'>HOME</Link></li>
-            <li><Link to='/about' className='link'>ABOUT</Link></li>
-            <li><a href='#footer' className='link'>CONTACT</a></li>
+            <li><Link className='link' to='/contact'>CONTACT</Link></li>
             <li><Link className='link' to='/write'>WRITE</Link></li>
             {user&&<li className='logout' onClick={logout}>LOGOUT</li>}
           </ul>
