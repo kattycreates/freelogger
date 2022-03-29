@@ -9,4 +9,25 @@
     justify-content: center;
     align-items:flex-start;
 }
+.noPosts{
+    flex: 9;
+    text-align: center;
+    margin-top: 30px;
+}
 
+
+@media screen and (max-width:575px) {
+    .homeDiv{
+        width: 100%;
+        
+    }
+    .noPosts{
+        width: 100%;
+        height: calc(100vh - 360px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      
+    }
+}
