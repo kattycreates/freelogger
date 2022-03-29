@@ -28,10 +28,10 @@ const logout=async(e)=>{
             <span className={toggle?"line line2-active":"line"}></span>
             <span className={toggle?"line line3-active":"line"}></span>
           </div>
-          <div className="title-desktop">FOOD BLOGGER</div>
+          <div className="title-desktop">FREE BLOGGER</div>
       </div>
       <div className='navItemCenter'>
-        <div className="title-mobile">FOOD BLOGGER</div>
+        <div className="title-mobile">FREE BLOGGER</div>
         <div className="nav">
           <ul>
             <li><Link className='link' to='/'>HOME</Link></li>

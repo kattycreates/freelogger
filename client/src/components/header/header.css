@@ -32,7 +32,8 @@
     font-size: 20px;
 }
 .searchBox::placeholder{
-    color: rgba(0,0,0,0.8);
+    color: rgba(0,0,0,0.7);
+    font-size: 18px;
 }
 .searchIcon{
     flex: 1;
@@ -41,6 +42,7 @@
     justify-content: center;
     align-items: center;
     color: black;
+    padding: 10px;;
 }
 .searchIcon:hover{
     background-color: rgb(0, 0, 0);

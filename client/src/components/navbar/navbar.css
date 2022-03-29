@@ -368,20 +368,20 @@
 
 }
 .v-nav-bar.v-nav-bar-visible{
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: block;
     
 }
 .v-nav-bar .VList{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     list-style-type: none;
     height: 100%;
     width: 100%;
     padding: 0;
-    margin-top: 10px;
+    
 }
 .VListItem{
     opacity: 0;
