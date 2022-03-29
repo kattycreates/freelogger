@@ -32,7 +32,7 @@ const Home = () => {
     <div className='home'>
         <Header />
         <div className='homeDiv'>
-          {posts?<Posts posts={posts}/>:<h3>Oops! Nothing to show</h3>}
+          {posts.length>0?<Posts posts={posts}/>:<h3>Oops! Nothing to show</h3>}
           <Sidebar />
         </div>
         <Jump />
