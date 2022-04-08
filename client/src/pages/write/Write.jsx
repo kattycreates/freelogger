@@ -145,11 +145,11 @@ const Write = () => {
                 <button onClick={handleUpload}>upload</button>
                 { progressShow&&progress<100&& <p>{progress}%</p>}
                 {progressShow&&progress===100&&<h1>completed</h1>}
-                <input type="text" placeholder='Title' className='blogTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)}/>
+                <input type="text" placeholder='Title' className='blogTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)} required/>
             </div>
             <div className="blogFormGroup2">
                 <div className="textInput">
-                    <textarea name="blog" id="blog" className='blogText' type="text" placeholder="Write your story..." value={desc} onChange={(e)=>setDesc(e.target.value)} />
+                    <textarea name="blog" id="blog" className='blogText' type="text" placeholder="Write your story..." value={desc} onChange={(e)=>setDesc(e.target.value)} required/>
                     <input className='catInput' placeholder='Enter relevant categories separated by commas' value={cats} onChange={(e)=>setCats(e.target.value)}/>
                 </div>
                 
