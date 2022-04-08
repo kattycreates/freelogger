@@ -1,9 +1,10 @@
-import React,{useState,useContext,useEffect} from 'react'
+import React,{useState,useContext} from 'react'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './settings.css'
 import axios from 'axios'
-import { useLocation } from 'react-router'
 import { Context } from '../../contexts/Context'
+import {ref,getDownloadURL,uploadBytesResumable} from "firebase/storage"
+import storage from '../../firebase';
 const Settings = () => {
   const {user,dispatch}=useContext(Context);
   const [username,setUsername]=useState(user.username);
@@ -12,6 +13,10 @@ const Settings = () => {
   const [file,setFile]=useState(null);
   const [success,setSuccess]=useState(false);
   const [deleted,setDeleted]=useState(false);
+  const [url,setUrl]=useState('');
+  const [progress,setProgress]=useState(0);
+  const [progressShow,setProgressShow]=useState(false);
+
  
   
   
@@ -19,8 +24,39 @@ const Settings = () => {
 
   
   
-  const profilePath='/imageProfile/';
+  //const profilePath='/imageProfile/';
 
+  //handle dp upload
+
+  const handleUpload=()=>{
+    setProgressShow(true);
+    const fileName=new Date().toDateString().replace(/:/g,"-")+file.name;
+    const storageRef=ref(storage,`/profileImages/${fileName}`);
+    const uploadTask=uploadBytesResumable(storageRef,file);
+    uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+            const uploaded = Math.floor(
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            );
+            setProgress(uploaded);
+        },
+        (error) => {
+            console.log(error);
+        },
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                setUrl(url);
+      //console.log(data);
+            });
+        }
+    );
+
+
+
+}
+
+//handle update
   const handleUpdate=async(e)=>{
     e.preventDefault();
     dispatch({type:"Update_Start"});
@@ -42,7 +78,7 @@ const Settings = () => {
       };
     }
     if(file){
-        console.log("file",file);
+        /*console.log("file",file);
         const data=new FormData();
         const filename=new Date().toISOString().replace(/:/g,'-')+file.name;
         data.append('name',filename);
@@ -51,7 +87,8 @@ const Settings = () => {
         try{
             await axios.post('/api/uploadProfilePic',data);
 
-        }catch(err){}
+        }catch(err){}*/
+        newPost.profileImg=url;
     } 
     try{
         const res=await axios.put('/api/users/'+user._id,newPost);
@@ -59,17 +96,17 @@ const Settings = () => {
         console.log("updated user",res);
         dispatch({type:"Update_Success",payload:res.data});
         
-        window.location.replace('/');
+        //window.location.replace('/');
     }
     catch(err){
       dispatch({type:"Update_Failure"});
     }
 }
 
-
+//delete account
   const deleteAccount=(e)=>{
     e.preventDefault();
-    if(window.confirm("Deleted account and posts permanently?")){
+    if(window.confirm("Delete account and posts permanently?")){
       try{
        
     
@@ -123,12 +160,14 @@ const Settings = () => {
               <label>Change profile picture</label>
               <div className="profileSettings">
                   
-                  <img src={file?URL.createObjectURL(file):user.profileImg?profilePath+user.profileImg:'assets/defaultProfilePic.png'} alt="user profile" className="proPic" />
+                  <img src={file?URL.createObjectURL(file):user.profileImg?user.profileImg:'assets/defaultProfilePic.png'} alt="user profile" className="proPic" />
                   <label htmlFor="profileInput">
                       <i className='userIcon fas fa-user' title='Upload profile picture'></i>
                   </label>
                   <input type="file" id='profileInput' onChange={(e)=>{setFile(e.target.files[0])}} />
-              
+                  <button onClick={handleUpload}>upload</button>
+                  { progressShow&&progress<100&& <p>{progress}%</p>}
+                  {progressShow&&progress===100&&<h1>completed</h1>}
               </div>
               <label htmlFor="userName">Username</label>
               <input type="text" id='userName' value={username} onChange={(e)=>setUsername(e.target.value)} />

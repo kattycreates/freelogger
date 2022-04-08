@@ -1,5 +1,5 @@
 import './App.css';
-import {useContext, useState} from 'react';
+import {useContext} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Routes,Route} from 'react-router-dom';
 import NavBar from './components/navbar/NavBar';

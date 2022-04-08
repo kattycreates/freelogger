@@ -1,5 +1,5 @@
 const Post=require('../models/Post');
-const fs=require('fs-extra');
+//const fs=require('fs-extra');
 
 const createPost=async(req,res)=>{
     const post=new Post(req.body);
@@ -46,7 +46,6 @@ const deletePost=async(req,res)=>{
         if(post.username===req.body.username){
             try{
                 await Post.findByIdAndDelete(req.params.id);
-                await fs.remove('images/'+req.body.postImage);
                 res.status(200).json("Post deleted successfully");
             }
             catch(err){
@@ -59,7 +58,7 @@ const deletePost=async(req,res)=>{
        
     }
     catch(err){
-
+        res.status(400).json(err);
     }
     
 };

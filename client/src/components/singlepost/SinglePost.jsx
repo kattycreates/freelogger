@@ -13,7 +13,7 @@ const [updateMode,setUpdateMode]=useState(false);
 const {user}=useContext(Context);
 const location=useLocation();
 const path=location.pathname.split('/')[2];
-const imagePath='/images/';
+//const imagePath='/images/';
 //console.log(location);
 //console.log(user);
 useEffect(()=>{
@@ -50,7 +50,7 @@ const handleUpdate=async()=>{
 const handleDelete=async()=>{
     if(window.confirm("Delete post permanently?")){
         try{
-            await axios.delete('/api/posts/'+path,post);
+            await axios.delete('/api/posts/'+path,{data:{username:user.username}});
             window.location.replace('/')
         }
         catch(err){
@@ -65,7 +65,7 @@ const handleDelete=async()=>{
   return (
     <div className='singlePost'>
         <div className="singlePostWrapper">
-        {post.postImage&&<img className='singlePostImg' src={imagePath+post.postImage} alt="" />}
+        {post.postImage&&<img className='singlePostImg' src={post.postImage} alt="" />}
         {updateMode?(
             <input type="text" className='editTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)}/>
         ):(<><h1>{post.title}

@@ -8,7 +8,7 @@ const NavBar = () => {
 const {user,dispatch}=useContext(Context);
 //console.log("user",user)
 const [toggle,setToggle]=useState(false);
-const imagePath='/imageProfile/';
+//const imagePath='/imageProfile/';
 
 const toggleClass=(e)=>{
   e.preventDefault();
@@ -46,7 +46,7 @@ const logout=async(e)=>{
           user?
         (<div className="profile">
           {/*<img src={user.profileImg!==''?imagePath+user.profileImg:'assets/defaultProfilePic.png'} alt="" className='mobileDP'/>*/}
-          <Link to={'/settings'}><img src={user.profileImg!==''?imagePath+user.profileImg:'assets/defaultProfilePic.png'} alt="" /></Link>
+          <Link to={'/settings'}><img src={user.profileImg!==''?user.profileImg:'assets/defaultProfilePic.png'} alt="" /></Link>
         </div>):(
           <ul className='log'>
           <li><Link className='link loginLink' to='/login'>LOGIN</Link></li>

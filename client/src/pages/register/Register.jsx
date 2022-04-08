@@ -12,7 +12,7 @@ const Register = () => {
     };
 const handleSubmit=async(e)=>{
     e.preventDefault();
-    setError(true);
+    setError(false);
     try{
         const res=await axios.post('/api/auth/register',{
             username,email,password,profileImg:""
@@ -21,7 +21,7 @@ const handleSubmit=async(e)=>{
         res&&window.location.replace('/login');
     }
     catch(err){
-        setError(false);
+        setError(true);
         console.log(err);
     }
     

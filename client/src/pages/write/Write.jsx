@@ -2,13 +2,17 @@ import axios from 'axios';
 import React,{useState,useContext,useEffect} from 'react'
 import './write.css'
 import { Context } from '../../contexts/Context';
+import {ref,getDownloadURL,uploadBytesResumable} from "firebase/storage"
+import storage from '../../firebase';
 const Write = () => {
     const [title,setTitle]=useState('');
     const [desc,setDesc]=useState('');
     const [file,setFile]=useState(null);
+    const [url,setUrl]=useState('');
     const [cats,setCats]=useState('');
     const [categories,setCategories]=useState([]);
-
+    const [progress,setProgress]=useState(0);
+    const [progressShow,setProgressShow]=useState(false);
 
 
 
@@ -26,7 +30,40 @@ const Write = () => {
     const {user}=useContext(Context);
 
 
-   
+   //handle upload to firebase
+  
+   const handleUpload=()=>{
+    if(file!==null){
+        setProgressShow(true);
+        const fileName=new Date().toDateString().replace(/:/g,"-")+file.name;
+        const storageRef=ref(storage,`/images/${fileName}`);
+        const uploadTask=uploadBytesResumable(storageRef,file);
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const uploaded = Math.floor(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setProgress(uploaded);
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    setUrl(url);
+          //console.log(data);
+                });
+            }
+        );
+     }
+     
+
+
+
+   }
+
+   //add categories
 
     const addCategories=async(postCats)=>{
         let catsToAdd=[];
@@ -74,7 +111,7 @@ const Write = () => {
             categories:catArr
         };
         if(file){
-            console.log("file",file);
+            /*console.log("file",file);
             const data=new FormData();
             const filename=new Date().toISOString().replace(/:/g,'-')+file.name;
             data.append('name',filename);
@@ -83,7 +120,9 @@ const Write = () => {
             try{
                 await axios.post('/api/upload',data);
 
-            }catch(err){}
+            }catch(err){}*/
+
+            newPost.postImage=url;
         }
         try{
             const res=await axios.post('/api/posts',newPost);
@@ -103,6 +142,9 @@ const Write = () => {
                     <i className="fileIcon fas fa-file-upload fa-2x" title='Upload file'></i>
                 </label>
                 <input type="file" id='blogUpload' className='blogFile' onChange={(e)=>setFile(e.target.files[0])} />
+                <button onClick={handleUpload}>upload</button>
+                { progressShow&&progress<100&& <p>{progress}%</p>}
+                {progressShow&&progress===100&&<h1>completed</h1>}
                 <input type="text" placeholder='Title' className='blogTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)}/>
             </div>
             <div className="blogFormGroup2">

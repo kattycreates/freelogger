@@ -34,22 +34,22 @@ const deleteUser=async (req,res)=>{
 
         try{
             const user=await User.findById(req.params.id);
-            console.log("user :",user);
+            //console.log("user :",user);
             try{
                 const userPosts= await Post.find({username:{$in:user.username}});
-                console.log("user posts",userPosts);
+                //console.log("user posts",userPosts);
                 if(userPosts.length>0){
                     Post.deleteMany({username:{$in:user.username}}).then(()=>{
                         User.findByIdAndDelete(req.params.id).then(()=>{
                             res.status(200).json('Account and posts deleted successfully');
-                            console.log("Account and posts deleted successfully!");
+                            //console.log("Account and posts deleted successfully!");
                         }).catch((err)=>console.log(err));
                      }).catch((err)=>console.log(err));
                 }
                 else{
                     User.findByIdAndDelete(req.params.id).then(()=>{
                         res.status(200).json('Account deleted successfully');
-                        console.log("Account deleted successfully!");
+                        //console.log("Account deleted successfully!");
                     }).catch((err)=>console.log(err));
                 }
 

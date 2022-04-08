@@ -1,4 +1,4 @@
-import React,{useRef,useContext} from 'react'
+import React,{useRef,useContext,useState} from 'react'
 import './login.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -6,7 +6,8 @@ import { Context } from '../../contexts/Context'
 const Login = () => {
   const emailRef=useRef();
   const passwordRef=useRef();
-  const {user,dispatch,isFetching}=useContext(Context);
+  const {dispatch,isFetching}=useContext(Context);
+  const [error,setError]=useState(false);
   const style={
     "textDecoration":"none"
 }
@@ -14,6 +15,7 @@ const handleSubmit=async(e)=>{
   e.preventDefault();
   dispatch({type:"Login_Start"});
     try{
+      setError(false);
         const res=await axios.post('/api/auth/login',{
             email:emailRef.current.value,
             password:passwordRef.current.value
@@ -26,6 +28,7 @@ const handleSubmit=async(e)=>{
     }
     catch(err){
         dispatch({type:"Login_Failure"});
+        setError(true);
         console.log(err);
     }
 
@@ -35,6 +38,7 @@ const handleSubmit=async(e)=>{
     <div className='login'>
         <form className="loginForm" onSubmit={handleSubmit}>
             <h3 className='logInTitle'>Sign In</h3>
+            {error&&<p className='error-msg'>Invalid credentials!</p>}
             <div className="inputDiv">
                 <i className='fa fa-envelope icon'></i>
                 <input type="email" className='input-field' placeholder='Email' name='email' ref={emailRef} />
