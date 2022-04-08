@@ -30,6 +30,7 @@ const Settings = () => {
 
   const handleUpload=()=>{
     setProgressShow(true);
+    console.log(file);
     const fileName=new Date().toDateString().replace(/:/g,"-")+file.name;
     const storageRef=ref(storage,`/profileImages/${fileName}`);
     const uploadTask=uploadBytesResumable(storageRef,file);
