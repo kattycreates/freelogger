@@ -168,7 +168,7 @@ const Settings = () => {
                   <input type="file" id='profileInput' onChange={(e)=>{setFile(e.target.files[0])}} />
                   <button onClick={handleUpload} className='upload-btn'>Upload</button>
                   { progressShow&&progress<100&& <p>{progress}%</p>}
-                  {progressShow&&progress===100&&<h1>completed</h1>}
+                  {progressShow&&progress===100&&<i className='check fas fa-check' ></i>}
               </div>
               <label htmlFor="userName">Username</label>
               <input type="text" id='userName' value={username} onChange={(e)=>setUsername(e.target.value)} />

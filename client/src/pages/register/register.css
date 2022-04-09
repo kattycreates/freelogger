@@ -20,6 +20,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(211, 211, 211, 0.6);
+    transition: all 0.3s ease;
 }
 .registerForm .icon{
     background-color: rgba(0,0,0,0.8);
@@ -61,4 +62,20 @@ span, a{
 a{
     color: black;
    font-weight: 900;
+}
+
+
+@media screen and (max-width:575px) {
+    .registerForm{
+        margin: 15px;
+        width: 300px;
+        height: 325px;
+        
+    }
+    .inputDivReg{
+        height: 35px;
+    }
+}
+@media screen and (max-width:400px) {
+   
 }

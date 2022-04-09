@@ -44,6 +44,12 @@
     align-items: center;
     
 }
+.check{
+    color: white;
+    background-color: rgb(27, 181, 27);
+    border-radius: 50%;
+    padding: 5px;
+}
 .title1{
     padding: 15px 0;
     

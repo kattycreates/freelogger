@@ -145,7 +145,7 @@ const Write = () => {
                     <input type="file" id='blogUpload' className='blogFile' onChange={(e)=>setFile(e.target.files[0])} />
                     <button onClick={handleUpload} className='upload-btn'>Upload</button>
                     { progressShow&&progress<100&& <p>{progress}%</p>}
-                    {progressShow&&progress===100&&<h4>Upload success</h4>}
+                    {progressShow&&progress===100&&<i className='check fas fa-check' ></i>}
                 </div>
                 
                 <input type="text" placeholder='Title' className='blogTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)} required/>
