@@ -8,6 +8,7 @@
     border: 1px solid rgba(0,0,0,0.7);
     box-shadow: 5px 5px 9px 1px rgba(0,0,0,0.5);
     border-radius: 10px;
+    color: rgba(0,0,0,0.8);
    
 }
 .post .postImg{
@@ -34,8 +35,8 @@
      display: none;
    }
 .postTitle{
-    font-weight: 700;
     overflow-wrap:break-word;
+    color: rgba(0,0,0,0.9);
 }
 .postTitle,.postDesc,.postDate{
  
