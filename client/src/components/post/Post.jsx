@@ -12,7 +12,7 @@ const Post = ({post}) => {
         <div className='postInfo'>
             <div className="postCategories">
               {post.categories.map((cat,index)=>{
-                  return <span key={index}>{cat}</span>
+                  return <span key={index}><Link to={`/?cat=${cat}`}  className="postCat" ><b>{cat}</b></Link></span>
               })}
             </div>
             <h3 className='postTitle'><Link to={`/post/${post._id}`}>{post.title}</Link></h3>
