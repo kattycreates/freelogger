@@ -36,6 +36,10 @@
    }
 .postTitle{
     overflow-wrap:break-word;
+    color: rgba(0,0,0,0.7);
+    text-decoration: none;
+}
+.postTitle:hover{
     color: rgba(0,0,0,0.9);
 }
 .postTitle,.postDesc,.postDate{
