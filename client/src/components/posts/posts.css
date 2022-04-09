@@ -1,8 +1,10 @@
 .posts{
     flex: 9;
     display: flex;
+    width:0;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     
 }
