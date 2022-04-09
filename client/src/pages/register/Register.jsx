@@ -42,7 +42,7 @@ const handleSubmit=async(e)=>{
             </div>
             <div className="inputDivReg">
                 <i className='fas fa-key icon'></i>
-                <input type="password" className='input-field-reg' placeholder='Password' name='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
+                <input type="password" minLength={8} maxLength={20} className='input-field-reg' placeholder='Password' name='password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
             </div>
             <button className="registerBtn" type='submit'>Register</button>
             <span>Or</span>

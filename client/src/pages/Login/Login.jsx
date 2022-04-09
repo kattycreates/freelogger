@@ -46,7 +46,7 @@ const handleSubmit=async(e)=>{
             </div>
             <div className="inputDiv">
                 <i className='fas fa-key icon'></i>
-                <input type="password" className='input-field' placeholder='Password' name='password' ref={passwordRef}/>
+                <input type="password" minLength={8} maxLength={20} className='input-field' placeholder='Password' name='password' ref={passwordRef}/>
             </div>
             <button className="loginBtn" type='submit' disabled={isFetching}>Sign In</button>
             <span>Or</span>
