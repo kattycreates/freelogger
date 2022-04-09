@@ -13,7 +13,7 @@ const Post = ({post}) => {
             
             <div className='postInfo'>
                 
-                <h3 className='postTitle'><Link to={`/post/${post._id}`}>{post.title}</Link></h3>
+                <h3><Link to={`/post/${post._id}`} className='postTitle'>{post.title}</Link></h3>
                 {post.categories[0]!==''&&<div className="postCategories">
                     <span>Categories:{post.categories.map((cat,index)=>{
                         return <Link to={`/?cat=${cat}`} key={index}  className="postCat" ><b> {cat} </b></Link>

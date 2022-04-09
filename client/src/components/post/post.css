@@ -41,7 +41,9 @@
      display: none;
    }
 .postTitle{
-    font-weight: 900;
+    font-weight: 700;
+    color: rgba(0,0,0,0.7);
+    text-decoration: none;
     overflow-wrap:break-word;
 }
 .postTitle:hover{
