@@ -138,14 +138,14 @@ const Write = () => {
         
         <form className="writeForm" onSubmit={handleSubmit}>
             <div className="blogFormGroup1">
-                <div>
+                <div className='uploadDiv'>
                     <label htmlFor="blogUpload">
                         <i className="fileIcon fas fa-file-upload fa-2x" title='Upload file'></i>
                     </label>
                     <input type="file" id='blogUpload' className='blogFile' onChange={(e)=>setFile(e.target.files[0])} />
-                    <button onClick={handleUpload}>upload</button>
+                    <button onClick={handleUpload} className='upload-btn'>Upload</button>
                     { progressShow&&progress<100&& <p>{progress}%</p>}
-                    {progressShow&&progress===100&&<h1>completed</h1>}
+                    {progressShow&&progress===100&&<h4>Upload success</h4>}
                 </div>
                 
                 <input type="text" placeholder='Title' className='blogTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)} required/>

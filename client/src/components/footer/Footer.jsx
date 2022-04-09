@@ -8,9 +8,10 @@ const Footer = () => {
         <p>Website: <a className='website' href='https://karthika-selvam.netlify.app/'>https://karthika-selvam.netlify.app/</a></p>
         <h4>Socials</h4>
         <div className="footerIcons">
-            <i className="footerIcon fab fa-linkedin fa-lg"></i>
-            <i className="footerIcon fab fa-instagram-square fa-lg"></i>
-            <i className="footerIcon fab fa-twitter-square fa-lg"></i>
+    
+            <a href='https://www.linkedin.com/in/karthika-s-825073223/'><i className="footerIcon fab fa-linkedin fa-lg"></i></a>
+            <a href='https://www.instagram.com/mauvflora/'><i className="footerIcon fab fa-instagram-square fa-lg"></i></a>
+            <a href='https://twitter.com/kattycreates'><i className="footerIcon fab fa-twitter-square fa-lg"></i></a>
 
         </div>
         <p>&copy; Karthika Selvam 2022</p>

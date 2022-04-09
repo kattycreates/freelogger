@@ -166,7 +166,7 @@ const Settings = () => {
                       <i className='userIcon fas fa-user' title='Upload profile picture'></i>
                   </label>
                   <input type="file" id='profileInput' onChange={(e)=>{setFile(e.target.files[0])}} />
-                  <button onClick={handleUpload}>upload</button>
+                  <button onClick={handleUpload} className='upload-btn'>Upload</button>
                   { progressShow&&progress<100&& <p>{progress}%</p>}
                   {progressShow&&progress===100&&<h1>completed</h1>}
               </div>
