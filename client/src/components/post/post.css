@@ -34,7 +34,7 @@
      display: none;
    }
 .postTitle{
-    font-weight: 900;
+    font-weight: 700;
     overflow-wrap:break-word;
 }
 .postTitle,.postDesc,.postDate{
