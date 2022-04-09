@@ -99,6 +99,11 @@ span{
 .read:hover{
     opacity: 1;
 }
+@media screen and (max-width:1000px) {
+    .post{
+        max-width: 90%;
+    }
+}
 @media screen and (max-width:575px) {
     .post{
         max-width: 350px;
