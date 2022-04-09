@@ -68,13 +68,12 @@ const handleDelete=async()=>{
         {post.postImage&&<img className='singlePostImg' src={post.postImage} alt="" />}
         {updateMode?(
             <input type="text" className='editTitle' autoFocus={true} value={title} onChange={(e)=>setTitle(e.target.value)}/>
-        ):(<><h1>{post.title}
-            {user?post.username===user.username&&(<div className="editIcons">
-                    <i className="singlePostIcon far fa-edit" onClick={()=>setUpdateMode(true)}></i>
-                    <i className="singlePostIcon far fa-trash-alt" onClick={handleDelete}></i>
-                </div>):''}
-                
-            </h1>
+        ):(<><div className='headLine'>
+        {user?post.username===user.username&&(<div className="editIcons">
+                <i className="singlePostIcon far fa-edit fa-lg" onClick={()=>setUpdateMode(true)}></i>
+                <i className="singlePostIcon far fa-trash-alt fa-lg" onClick={handleDelete}></i>
+            </div>):''}<h1>{post.title}</h1></div>
+            
             <div className="singlePostInfo">
                 <span>
                     Author : <Link to={`/?user=${post.username}`}><b className="singlePostAuthor">{post.username}</b></Link>

@@ -12,14 +12,18 @@ const Post = ({post}) => {
         <div className='postInfo'>
             <div className="postCategories">
               {post.categories.map((cat,index)=>{
-                  return <span key={index}>{cat.name}</span>
+                  return <span key={index}>{cat}</span>
               })}
             </div>
             <h3 className='postTitle'><Link to={`/post/${post._id}`}>{post.title}</Link></h3>
+            <span> Author : <Link to={`/?user=${post.username}`}><b>{post.username}</b></Link></span>
             <div className="postDate">
                 {new Date(post.createdAt).toLocaleString()}
             </div>
             <p className='postDesc'>{post.desc}</p>
+        </div>
+        <div className='readDiv'>
+        <Link to={`/post/${post._id}`} className='read'>Read</Link>
         </div>
 
     </div>

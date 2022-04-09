@@ -8,7 +8,8 @@ const Register = () => {
     const [password,setPassword]=useState('');
     const [error,setError]=useState(false);
     const style={
-        "textDecoration":"none"
+        "textDecoration":"none",
+        "fontWeight":700
     };
 const handleSubmit=async(e)=>{
     e.preventDefault();
