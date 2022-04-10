@@ -225,6 +225,7 @@
     font-weight: 900;
     font-size: 20px;
     letter-spacing: 3px;
+    padding: 5px;
 }
 
 
@@ -253,14 +254,16 @@
    }
    .title-desktop{
     font-weight: 700;
+    font-size: 18px;
+    padding: 5px;
 }
     .nav ul{
         width: 95%;
     }
-   .nav ul li{
+   /*.nav ul li{
        padding: 0;
        margin: 0;
-   }
+   }*/
    .log li{
        padding: 0;
        margin:0 2px;
@@ -272,6 +275,9 @@
    .registerLink{
        padding: 5px;
    }
+   .logout{
+    padding: 10px;
+}
 }
 
 @media screen and (max-width:575px) {
@@ -335,9 +341,9 @@
     .title-mobile{
         display:block;
         text-align: center;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: 3px;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 3px;
        
     }
     .nav{

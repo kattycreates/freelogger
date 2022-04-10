@@ -27,6 +27,12 @@
     overflow-wrap: break-word;
    
 }
+.singlePostDesc::first-letter{
+    font-size: 22px;
+    font-weight: bolder;
+    color:rgb(119, 119, 119)
+   
+}
 h1{
     width: 100%;
      margin: 10px 0;

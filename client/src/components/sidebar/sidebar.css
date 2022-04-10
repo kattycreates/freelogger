@@ -7,7 +7,7 @@
     opacity: 1;
     transition: all 0.3s ease;
     padding-bottom: 10px;
-   
+    margin: 0 10px;
   
 }
 .sidebarItem1,.sidebarItem2,.sidebarItem3{
@@ -27,7 +27,7 @@ p{
     border-bottom: 1px solid black;
     padding: 5px 0;
     Font-Family: 'Varela Round', Sans-Serif;
-Font-Size: 18px;
+    Font-Size: 18px;
 }
 .myPic{
     height: 200px;

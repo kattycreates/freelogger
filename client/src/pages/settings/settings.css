@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    transition: all 0.3s ease;
 }
 .settingsWrapper{
     flex: 9;
@@ -50,20 +51,23 @@
     border-radius: 50%;
     padding: 5px;
 }
-.title1{
+/*.title1{
     padding: 15px 0;
     
-}
+}*/
 .title1,.title2{
-    margin: 30px 20px;
+    margin: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 .settingsForm{
     margin:20px;
-    padding:20px 0;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 60vh;
+    /*height: 60vh;*/
+    height: auto;
   
 }
 
@@ -73,7 +77,7 @@
     border-bottom: 1px solid lightgray;
     outline: none;
     margin: 20px 0;
-    font-size: 20px;
+    font-size: 17px;
     padding: 5px;
 }
 .updateSubmit{
@@ -94,6 +98,11 @@
     align-items: center;
     margin: 0 20px;
     color: red;
+    font-size: 14px;
+}
+.warning b{
+    text-transform: uppercase;
+    font-weight: lighter;
 }
 .warning i{
     padding-right: 10px;
@@ -121,3 +130,22 @@
 
 /* media queries*/
 
+@media screen and (max-width:375px) {
+    .title1,.title2{
+        font-size: 20px;
+        
+    }
+    .settingsForm{
+        font-size: 17px;
+    }
+    #userName,#email,#password{
+        height: 25px;
+        margin: 15px 0;
+        padding: 5px;
+        font-size: 17px;
+    }
+    .warning{
+        font-size: 11px;
+        text-transform:lowercase;
+    }
+}
