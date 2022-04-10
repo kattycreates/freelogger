@@ -181,7 +181,7 @@ const Settings = () => {
 
           </form>
           <h2 className="title2">Delete your account</h2>
-          <h4 className='warning'><i className='fas fa-exclamation-triangle'></i><b>D</b>eletion of account is irreversible and leads to permanent removal of your account</h4>
+          <h4 className='warning'><i className='fas fa-exclamation-triangle'></i>Deletion of account is irreversible and leads to permanent removal of your account</h4>
           <button className="deleteAccount" onClick={deleteAccount}>Delete my account</button>
           {deleted&&<span>Account deleted successfully!</span>}
       </div>

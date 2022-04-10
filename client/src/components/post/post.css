@@ -25,7 +25,7 @@
      
     }
 .postInfo{
-    padding-top: 10px;
+    
      width: 100%;
     
      display: flex;
@@ -45,13 +45,14 @@
     color: rgba(0,0,0,0.7);
     text-decoration: none;
     overflow-wrap:break-word;
+    margin:10px 10px 0px 10px;
 }
 .postTitle:hover{
     color: rgba(0,0,0,0.9);
 }
-.postTitle,.postDesc,.postDate{
+.postDesc,.postDate{
  
-    margin:10px 10px;
+    margin:10px 10px 0px 10px;
     width: calc(100% - 20px);
 }
 .postCategories{
@@ -130,11 +131,11 @@ span{
 }
 @media screen and (max-width:575px) {
     .post{
-        max-width: 80%;
+        max-width: 90%;
     }
 }
 @media screen and (max-width:400px) {
     .post{
-        max-width: 80%;
+        max-width: 90%;
     }
 }

@@ -100,10 +100,7 @@
     color: red;
     font-size: 14px;
 }
-.warning b{
-    text-transform: uppercase;
-    font-weight: lighter;
-}
+
 .warning i{
     padding-right: 10px;
     color: red;
