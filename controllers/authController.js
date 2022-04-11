@@ -15,7 +15,7 @@ const register= async (req,res)=>{
         res.status(200).json(newUser);
     }
     catch(err){
-        res.status(400).json(err);
+       return res.status(400).json(err);
     }
     
 
@@ -24,15 +24,34 @@ const register= async (req,res)=>{
 
 const login= async (req,res)=>{
     try{
-        const user= await User.findOne({email:req.body.email});
+        /*const user= await User.findOne({email:req.body.email});
         !user && res.status(400).json("invalid credentials");
         const validatedUser=await bcrypt.compare(req.body.password,user.password);
         !validatedUser && res.status(400).json('invalid credentials');
         const {password,...others}=user._doc;
-        res.status(200).json(others);
+        res.status(200).json(others);*/
+        const user= await User.findOne({email:req.body.email});
+        //console.log("logged user",user);
+        if(user===null){
+            return res.status(400).json("user not found");
+        }
+        else{
+            const validatedUser=await bcrypt.compare(req.body.password,user.password);
+            if(validatedUser===false){
+                return res.status(400).json("Invalid password");
+            }
+            else{
+                const {password,...others}=user._doc;
+                res.status(200).json(others);
+            }
+        }
+       
+      
     }
     catch(err){
-        res.status(400).json(err);
+        console.log(err);
+       return res.status(400).json({err});
+        
     }
     
 
